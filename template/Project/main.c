@@ -22,19 +22,36 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
-
+#include "UART.h"
+#include "LED.h"
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
 void main(void)
 {
+    char ch = 0;
+
     //Clock Initialize
     CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
+
+    //Initialize the UART for Communication
+    UART_Initialize();
+    LED_Initialize();
+
+    //test of printf
+    printf("Hello World!\r\n");
+
+    //test of led
+    LED_Set_Status(RESET);
 
     /* Infinite loop */
     while (1)
     {
+        ch = getchar();
+        putchar('\r');
+        putchar(ch);
+        LED_Reverse();
     }
 
 }
