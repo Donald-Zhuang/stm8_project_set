@@ -1,0 +1,3 @@
+/Project/*
+!/Project/main.c
+!/Project/stm8s*
