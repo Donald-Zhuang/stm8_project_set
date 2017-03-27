@@ -24,6 +24,8 @@
 #include "stm8s.h"
 #include "UART.h"
 #include "LED.h"
+#include "Key.h"
+
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -44,14 +46,18 @@ void main(void)
 
     //test of led
     LED_Set_Status(RESET);
+    Key_Initialize();
 
+    enableInterrupts();
     /* Infinite loop */
     while (1)
     {
+        /*
         ch = getchar();
         putchar('\r');
         putchar(ch);
         LED_Reverse();
+        */
     }
 
 }

@@ -5,7 +5,7 @@
   * @version  V2.1.0
   * @date     18-November-2011
   * @brief    Main Interrupt Service Routines.
-  *           This file provides template for all peripherals interrupt service 
+  *           This file provides template for all peripherals interrupt service
   *           routine.
   ******************************************************************************
   * @attention
@@ -19,11 +19,12 @@
   *
   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
   ******************************************************************************
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s_it.h"
-
+#include "key.h"
+#include "led.h"
 /** @addtogroup Template_Project
   * @{
   */
@@ -123,6 +124,10 @@ INTERRUPT_HANDLER(EXTI_PORTB_IRQHandler, 4)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
+    if( GPIO_ReadInputPin(KEY_GPIO_PORT,KEY_GPIO_PIN) == RESET )
+    {
+        LED_Reverse();
+    }
 }
 
 /**
@@ -249,7 +254,7 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
      it is recommended to set a breakpoint on the following instruction.
   */
  }
- 
+
 /**
   * @brief Timer5 Capture/Compare Interrupt routine.
   * @param  None
@@ -423,7 +428,7 @@ INTERRUPT_HANDLER(I2C_IRQHandler, 19)
   * @brief ADC1 interrupt routine.
   * @par Parameters:
   * None
-  * @retval 
+  * @retval
   * None
   */
  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
