@@ -16,7 +16,7 @@
   */
 
 /* Exported macro ------------------------------------------------------------*/
-#define KEY_GPIO_PORT   (GPIOB)
+#define KEY_GPIO_PORT   (GPIOC)
 #define KEY_GPIO_PIN    (GPIO_PIN_4)
 
 /* Exported functions --------------------------------------------------------*/

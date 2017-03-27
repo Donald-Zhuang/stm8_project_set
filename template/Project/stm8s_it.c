@@ -124,10 +124,7 @@ INTERRUPT_HANDLER(EXTI_PORTB_IRQHandler, 4)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
-    if( GPIO_ReadInputPin(KEY_GPIO_PORT,KEY_GPIO_PIN) == RESET )
-    {
-        LED_Reverse();
-    }
+
 }
 
 /**
@@ -140,6 +137,10 @@ INTERRUPT_HANDLER(EXTI_PORTC_IRQHandler, 5)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
+    if( GPIO_ReadInputPin(KEY_GPIO_PORT,KEY_GPIO_PIN) == RESET )
+    {
+        LED_Reverse();
+    }
 }
 
 /**
