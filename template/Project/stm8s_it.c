@@ -229,6 +229,13 @@ INTERRUPT_HANDLER(TIM1_UPD_OVF_TRG_BRK_IRQHandler, 11)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
+    static unsigned int time_cnt = 1000;
+    if( (--time_cnt) == RESET )
+    {
+        LED_Reverse();
+        time_cnt = 1000;
+    }
+    TIM1_ClearITPendingBit(TIM1_IT_UPDATE);
 }
 
 /**

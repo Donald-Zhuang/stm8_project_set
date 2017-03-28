@@ -25,6 +25,7 @@
 #include "UART.h"
 #include "LED.h"
 #include "Key.h"
+#include "TIM.h"
 
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -40,6 +41,7 @@ void main(void)
     //Initialize the UART for Communication
     UART_Initialize();
     LED_Initialize();
+    TIM1_Initialize();
 
     //test of printf
     printf("Hello World!\r\n");
