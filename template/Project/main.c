@@ -26,12 +26,13 @@
 #include "LED.h"
 #include "Key.h"
 #include "TIM.h"
+#include "Delay.h"
 
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
-void main(void)
+ void main(void)
 {
     char ch = 0;
 
@@ -41,11 +42,11 @@ void main(void)
     //Initialize the UART for Communication
     UART_Initialize();
     LED_Initialize();
-    TIM1_Initialize();
-
+    //TIM1_Initialize();
+    TIM2_PWM_Initialize();
     //test of printf
     printf("Hello World!\r\n");
-
+    Delay_Initialize();
     //test of led
     LED_Set_Status(RESET);
     Key_Initialize();
@@ -54,12 +55,8 @@ void main(void)
     /* Infinite loop */
     while (1)
     {
-        /*
-        ch = getchar();
-        putchar('\r');
-        putchar(ch);
+        Delay_Nmsec(500);
         LED_Reverse();
-        */
     }
 
 }

@@ -11,13 +11,25 @@
 
 /* Exported types ------------------------------------------------------------*/
 
+#ifdef TIM_MODULE
+#define EXTERN
+#else
+#define EXTERN extern
+#endif
+
+EXTERN u16 u16SysTick; // this variable just designes for system tick tok.
+
 /** @addtogroup
   * @{
   */
-extern void TIM1_Initialize(void);
+
 /* Exported macro ------------------------------------------------------------*/
 
 /* Exported functions --------------------------------------------------------*/
+EXTERN void TIM1_Initialize(void);
+EXTERN void TIM2_PWM_Initialize( void );
+EXTERN void TIM2_Counter_Initialize( void );
+EXTERN void TIM4_Timer_Init(void);
 
 #endif
 

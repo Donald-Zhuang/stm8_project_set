@@ -25,6 +25,7 @@
 #include "stm8s_it.h"
 #include "key.h"
 #include "led.h"
+#include "TIM.h"
 /** @addtogroup Template_Project
   * @{
   */
@@ -229,12 +230,6 @@ INTERRUPT_HANDLER(TIM1_UPD_OVF_TRG_BRK_IRQHandler, 11)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
-    static unsigned int time_cnt = 1000;
-    if( (--time_cnt) == RESET )
-    {
-        LED_Reverse();
-        time_cnt = 1000;
-    }
     TIM1_ClearITPendingBit(TIM1_IT_UPDATE);
 }
 
@@ -470,6 +465,11 @@ INTERRUPT_HANDLER(TIM6_UPD_OVF_TRG_IRQHandler, 23)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
+  if( ((TIM4->SR1 & TIM4_IT_UPDATE)&&(TIM4->IER & TIM4_IT_UPDATE)) != RESET )
+  {
+    u16SysTick++;
+  }
+  TIM4->SR1 &= (uint8_t)(~TIM4_IT_UPDATE);
  }
 #endif /*STM8S903*/
 
