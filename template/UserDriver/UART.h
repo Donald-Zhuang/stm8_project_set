@@ -14,10 +14,18 @@
 /** @addtogroup
   * @{
   */
-void UART_Initialize(void);
+
 /* Exported macro ------------------------------------------------------------*/
+#ifdef UART_MODULE
+    #define UART_EXTERN
+#else
+    #define UART_EXTERN extern
+#endif
+
+UART_EXTERN u8 u8UartData;
 
 /* Exported functions --------------------------------------------------------*/
+UART_EXTERN void UART_Initialize(void);
 
 #endif
 

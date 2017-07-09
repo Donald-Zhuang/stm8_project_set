@@ -40,6 +40,7 @@ void TIM2_PWM_Initialize( void )
 void TIM4_Timer_Init(void)
 {
     u16SysTick = 0;
+    // Warning : DO NOT Change these configurations
     TIM4_TimeBaseInit( TIM4_PRESCALER_64, 250 );
     TIM4_ARRPreloadConfig(ENABLE);
     TIM4_PrescalerConfig(TIM4_PRESCALER_64, TIM4_PSCRELOADMODE_IMMEDIATE);

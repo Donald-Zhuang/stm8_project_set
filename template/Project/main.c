@@ -51,6 +51,7 @@
     LED_Set_Status(RESET);
     Key_Initialize();
 
+    /*Enable the response of interrupt function*/
     enableInterrupts();
     /* Infinite loop */
     while (1)

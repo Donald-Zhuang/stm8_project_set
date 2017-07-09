@@ -1,3 +1,4 @@
+#define KEY_MODULE (1)
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
 #include "key.h"
@@ -7,8 +8,8 @@
 
 void Key_Initialize(void)
 {
-    GPIO_Init( KEY_GPIO_PORT, KEY_GPIO_PIN, GPIO_MODE_IN_PU_IT );
-    EXTI_SetExtIntSensitivity(EXTI_PORT_GPIOB, EXTI_SENSITIVITY_FALL_ONLY);
+    GPIO_Init( KEY_GPIO_PORT, KEY_GPIO_PIN, KEY_GPIO_MODE );
+    EXTI_SetExtIntSensitivity( KEY_IT_PORT, KEY_IT_MODE );
     //EXTI_SetTLISensitivity(EXTI_TLISENSITIVITY_FALL_ONLY);
 }
 

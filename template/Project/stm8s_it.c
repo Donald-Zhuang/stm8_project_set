@@ -465,7 +465,7 @@ INTERRUPT_HANDLER(TIM6_UPD_OVF_TRG_IRQHandler, 23)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
-  if( ((TIM4->SR1 & TIM4_IT_UPDATE)&&(TIM4->IER & TIM4_IT_UPDATE)) != RESET )
+  if( ( (TIM4->SR1 & TIM4_IT_UPDATE) && (TIM4->IER & TIM4_IT_UPDATE) ) != RESET )
   {
     u16SysTick++;
   }

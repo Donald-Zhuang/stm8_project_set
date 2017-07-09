@@ -17,15 +17,15 @@
 
 /* Exported macro ------------------------------------------------------------*/
 #ifdef DELAY_MODULE
-#define EXTERN
+#define DELAY_EXTERN
 #else
-#define EXTERN extern
+#define DELAY_EXTERN extern
 #endif
 
 /* Exported functions --------------------------------------------------------*/
-EXTERN void Delay_Initialize(void);
-EXTERN void Delay_Nmsec(u16 nms);
-EXTERN void Delay_Nsec(u16 ns);
+DELAY_EXTERN void Delay_Initialize(void);
+DELAY_EXTERN void Delay_Nmsec(u16 nms);
+DELAY_EXTERN void Delay_Nsec(u16 ns);
 
 
 #endif
