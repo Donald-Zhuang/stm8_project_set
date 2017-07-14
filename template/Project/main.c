@@ -27,15 +27,14 @@
 #include "Key.h"
 #include "TIM.h"
 #include "Delay.h"
-
+#include "nrf24l01.h"
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
-
- void main(void)
+void main(void)
 {
     char ch = 0;
-
+    u8 rxbuf[32] = {0,};
     //Clock Initialize
     CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
 
@@ -48,8 +47,14 @@
     printf("Hello World!\r\n");
     Delay_Initialize();
     //test of led
-    LED_Set_Status(RESET);
+    LED_Set_Status(SET);
     Key_Initialize();
+    NRF24L01_GPIO_Initialize();
+    if ( NRF24L01_Check_Device())
+    {
+        printf("There is a NRF24L01.\r\n");
+        NRF24L01_RX_Initialize();
+    }
 
     /*Enable the response of interrupt function*/
     enableInterrupts();
@@ -58,6 +63,11 @@
     {
         Delay_Nmsec(500);
         LED_Reverse();
+
+        if (NRF24L01_Recieve_Packet(rxbuf,13) != RESET)
+        {
+            printf(rxbuf);
+        }
     }
 
 }

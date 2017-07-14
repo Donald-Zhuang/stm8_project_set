@@ -3,8 +3,8 @@
 
 /* Private defines -----------------------------------------------------------*/
 // parameters for initialization
-#define LED_GPIO_PIN    (GPIO_PIN_5)
-#define LED_GPIO_PORT   (GPIOB)
+#define LED_GPIO_PIN    (GPIO_PIN_3)
+#define LED_GPIO_PORT   (GPIOC)
 #define LED_GPIO_MODE   (GPIO_MODE_OUT_PP_HIGH_FAST)
 
 
